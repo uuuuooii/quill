@@ -2,13 +2,13 @@ import { cn } from '@/lib/utils'
 import React, { ReactNode } from 'react'
 
 interface InnerProps {
-  classNeme?: string
+  className?: string
   children: ReactNode
 }
 
-const Inner = ({ classNeme, children }: InnerProps) => {
+const Inner = ({ className, children }: InnerProps) => {
   return (
-    <div className={cn('mx-auto w-full max-w-screen-xl px-2.5 md:px-20', classNeme)}>
+    <div className={cn('mx-auto w-full max-w-screen-xl px-2.5 md:px-20', className)}>
       {children}
     </div>
   )
