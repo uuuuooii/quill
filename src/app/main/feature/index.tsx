@@ -29,8 +29,8 @@ const FeatureSection = () => {
             <Image
               src='/file-upload-preview.jpg'
               alt='uploading preview'
-              width={1364}
-              height={866}
+              width={1419}
+              height={732}
               quality={100}
               className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
             />
