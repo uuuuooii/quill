@@ -11,23 +11,25 @@ const AuthCallback = () => {
   const origin = searchParams.get('origin')
   console.log('1')
 
-  trpc.authCallback.useQuery(undefined, {
-    onSuccess: ({ success }) => {
-      if (success) {
-        console.log('2')
-        // user is synced to db
-        router.push(origin ? `/${origin}` : '/dashboard')
-      }
-    },
-    onError: (err) => {
-      console.log('3')
-      if (err.data?.code === 'UNAUTHORIZED') {
-        router.push("/sing-in")
-      }
-    },
-    retry: true,
-    retryDelay: 500
-  })
+  trpc.authCallback.useQuery(
+    undefined,
+    {
+      onSuccess: ({ success }) => {
+        if (success) {
+          console.log('2')
+          // user is synced to db
+          router.push(origin ? `/${origin}` : '/dashboard')
+        }
+      },
+      onError: (err) => {
+        console.log('3')
+        if (err.data?.code === 'UNAUTHORIZED') {
+          router.push("/sing-in")
+        }
+      },
+      retry: true,
+      retryDelay: 500
+    })
 
   return (
     <div className='w-full mt-24 flex justify-center'>

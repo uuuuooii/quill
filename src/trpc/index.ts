@@ -1,7 +1,7 @@
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { publicProcedure, router } from './trpc';
 import { TRPCError } from '@trpc/server';
-import { prisma } from '@/db';
+import { db } from '@/db';
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
@@ -15,7 +15,7 @@ export const appRouter = router({
     }
 
     // check if the user is in the database
-    const dbUser = await prisma.user.findFirst({
+    const dbUser = await db.user.findFirst({
       where: {
         id: user.id,
       },
@@ -23,7 +23,7 @@ export const appRouter = router({
     console.log(dbUser);
     if (!dbUser) {
       // create user in db
-      await prisma.user.create({
+      await db.user.create({
         data: {
           id: user.id,
           email: user.email,
