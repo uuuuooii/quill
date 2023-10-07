@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Dialog } from '../ui/dialog'
+import { DialogTrigger } from '@radix-ui/react-dialog'
 
 const UploadButton = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -10,7 +11,9 @@ const UploadButton = () => {
       if (!value) {
         setIsOpen(value)
       }
-    }}>UploadButton</Dialog>
+    }}>
+      <DialogTrigger asChild></DialogTrigger>
+    </Dialog>
   )
 }
 
