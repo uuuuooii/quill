@@ -1,9 +1,11 @@
 import { cn } from '@/lib/utils/utils'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
 import Navbar from '@/components/navbar'
-import './globals.css'
 import Providers from '@/lib/providers'
+import 'react-loading-skeleton/dist/skeleton.css'
+import './globals.css'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
